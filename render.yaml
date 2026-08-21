@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: lmarena-headless-proxy
+    env: docker
+    region: singapore
+    plan: free
+    branch: main
