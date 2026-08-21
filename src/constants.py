@@ -1,3 +1,4 @@
+import os
 """
 Constants for LMArenaBridge.
 All hardcoded values should be defined here.
@@ -11,7 +12,7 @@ All hardcoded values should be defined here.
 DEBUG = True
 
 # Port to run the server on
-PORT = 8000
+PORT = int(os.environ.get("PORT", "8000"))
 
 # Default config and models file paths
 CONFIG_FILE = "config.json"
