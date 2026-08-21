@@ -621,6 +621,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+@app.get("/healthz")
+async def simple_health_check():
+    """Simple health check endpoint for monitoring"""
+    return {"status": "ok"}
+
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/dashboard")
+
 # Add CORS middleware to handle preflight requests and avoid 405 errors
 app.add_middleware(
     CORSMiddleware,
